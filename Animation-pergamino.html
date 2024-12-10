@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergamino</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #800000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .scroll-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            height: 90%;
+            background: linear-gradient(to bottom, #f5deb3, #e6cbb5);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transform-origin: top center;
+            transform: scaleY(0); /* Inicia cerrado */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scroll-header,
+        .scroll-footer {
+            position: absolute;
+            width: 120%;
+            height: 40px;
+            background: #8b5a2b;
+            border-radius: 20px;
+            left: -10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scroll-header {
+            top: -40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-footer {
+            bottom: -40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-header::before,
+        .scroll-footer::before {
+            content: '';
+            width: 20px;
+            height: 100%;
+            background: #4e342e;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .scroll-header::after,
+        .scroll-footer::after {
+            content: '';
+            width: 20px;
+            height: 100%;
+            background: #4e342e;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container" id="scroll">
+        <div class="scroll-header"></div>
+        <div class="scroll-footer"></div>
+    </div>
+
+    <script>
+        // Animación del pergamino abriéndose
+        const scroll = document.getElementById('scroll');
+        gsap.to(scroll, { duration: 2, scaleY: 1, ease: "power2.out" });
+    </script>
+</body>
+</html>
